@@ -1,0 +1,6 @@
+modname:ecotones
+
+texture:id=txt0000,filename=assets/ecotones/textures/block/dried_dirt.png,xcount=1,ycount=1
+texture:id=txt0001,filename=assets/ecotones/textures/block/peat.png,xcount=1,ycount=1
+block:id=%dried_dirt,data=*,allfaces=0:txt0000,stdrot=true
+block:id=%peat,data=*,allfaces=0:txt0001,stdrot=true
