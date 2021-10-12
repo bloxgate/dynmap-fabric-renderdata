@@ -1,0 +1,4 @@
+modname:croptopia
+
+texture:id=txt0000,filename=assets/croptopia/textures/block/salt_ore.png,xcount=1,ycount=1
+block:id=%salt_ore,data=*,allfaces=0:txt0000,stdrot=true
