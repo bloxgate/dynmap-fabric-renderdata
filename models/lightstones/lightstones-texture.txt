@@ -1,0 +1,10 @@
+modname:lightstones
+
+texture:id=txt0000,filename=assets/lightstones/textures/block/blightstone_block.png,xcount=1,ycount=1
+texture:id=txt0001,filename=assets/lightstones/textures/block/blightstone_ore.png,xcount=1,ycount=1
+texture:id=txt0002,filename=assets/lightstones/textures/block/lightstone_block.png,xcount=1,ycount=1
+texture:id=txt0003,filename=assets/lightstones/textures/block/lightstone_ore.png,xcount=1,ycount=1
+block:id=%blightstone_block,data=*,allfaces=0:txt0000,stdrot=true
+block:id=%blightstone_ore,data=*,allfaces=0:txt0001,stdrot=true
+block:id=%lightstone_block,data=*,allfaces=0:txt0002,stdrot=true
+block:id=%lightstone_ore,data=*,allfaces=0:txt0003,stdrot=true
