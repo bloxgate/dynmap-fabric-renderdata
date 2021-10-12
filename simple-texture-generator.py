@@ -6,22 +6,9 @@ import json
 import tempfile
 import os
 
-textures = set()
-textureToIDMap= dict()
+import blockhandlers
 
-def AddOrGetTextureByPath(path, isMod):
-    if isMod:
-        adjustedPath = f"assets/{modID}/textures/{path}.png"
-    else:
-        adjustedPath = f"assets/minecraft/textures/{path}.png"
-
-    if adjustedPath in textures:
-        return textureToIDMap[adjustedPath]
-    else:
-        i = len(textures)
-        textures.add(adjustedPath)
-        textureToIDMap[adjustedPath] = f"txt{i:04d}"
-        return textureToIDMap[adjustedPath]
+handlers = [blockhandlers.CubeAllHandler()]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generates dynmap texture support for cube/all models in a mod")
@@ -48,17 +35,14 @@ if __name__ == "__main__":
             continue
         with open(fullBlockFile, mode='r') as blockModel:
             model = json.loads(blockModel.read())
-            if 'parent' in model.keys() and (model['parent'] == "block/cube_all" or model['parent'] == "minecraft:block/cube_all"):
-                if ':' in model['textures']['all']:
-                    txt = AddOrGetTextureByPath(model['textures']['all'].split(':')[1], True)
-                    entries.append(f"block:id=%{os.path.splitext(blockFile)[0]},data=*,allfaces=0:{txt},stdrot=true\n")
-                else:
-                    txt = AddOrGetTextureByPath(model['textures']['all'], False)
-                    entries.append(f"block:id=%{os.path.splitext(blockFile)[0]},data=*,allfaces=0:{txt},stdrot=true\n")
+            for handler in handlers:
+                if handler.can_handle(model):
+                    entries.append(handler.handle(blockFile, model, modID))
+                    break
 
     with open(f"{modID}-texture.txt", "w") as outFile:
         outFile.writelines(f"modname:{modID}\n\n")
-        for k,v in textureToIDMap.items():
+        for k,v in blockhandlers.BlockHandler.textureToIDMap.items():
             outFile.writelines(f"texture:id={v},filename={k},xcount=1,ycount=1\n")
         for entry in entries:
             outFile.writelines(entry)
