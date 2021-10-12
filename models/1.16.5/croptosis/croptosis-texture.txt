@@ -1,0 +1,14 @@
+modname:croptosis
+
+texture:id=txt0000,filename=assets/croptosis/textures/block/apatite_block.png,xcount=1,ycount=1
+texture:id=txt0001,filename=assets/croptosis/textures/block/apatite_ore.png,xcount=1,ycount=1
+texture:id=txt0002,filename=assets/croptosis/textures/block/fertilized_dirt.png,xcount=1,ycount=1
+texture:id=txt0003,filename=assets/croptosis/textures/block/fertilized_sand.png,xcount=1,ycount=1
+texture:id=txt0004,filename=assets/croptosis/textures/block/potash_block.png,xcount=1,ycount=1
+texture:id=txt0005,filename=assets/croptosis/textures/block/potash_ore.png,xcount=1,ycount=1
+block:id=%apatite_block,data=*,allfaces=0:txt0000,stdrot=true
+block:id=%apatite_ore,data=*,allfaces=0:txt0001,stdrot=true
+block:id=%fertilized_dirt,data=*,allfaces=0:txt0002,stdrot=true
+block:id=%fertilized_sand,data=*,allfaces=0:txt0003,stdrot=true
+block:id=%potash_block,data=*,allfaces=0:txt0004,stdrot=true
+block:id=%potash_ore,data=*,allfaces=0:txt0005,stdrot=true

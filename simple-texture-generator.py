@@ -48,7 +48,7 @@ if __name__ == "__main__":
             continue
         with open(fullBlockFile, mode='r') as blockModel:
             model = json.loads(blockModel.read())
-            if 'parent' in model.keys() and model['parent'] == "block/cube_all":
+            if 'parent' in model.keys() and (model['parent'] == "block/cube_all" or model['parent'] == "minecraft:block/cube_all"):
                 if ':' in model['textures']['all']:
                     txt = AddOrGetTextureByPath(model['textures']['all'].split(':')[1], True)
                     entries.append(f"block:id=%{os.path.splitext(blockFile)[0]},data=*,allfaces=0:{txt},stdrot=true\n")
