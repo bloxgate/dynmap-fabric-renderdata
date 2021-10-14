@@ -150,11 +150,11 @@ texture:id=txt0146,filename=assets/blockus/textures/block/end_stone_pillar_top.p
 texture:id=txt0147,filename=assets/blockus/textures/block/end_stone_pillar.png,xcount=1,ycount=1
 texture:id=txt0148,filename=assets/blockus/textures/block/ender_block.png,xcount=1,ycount=1
 texture:id=txt0149,filename=assets/blockus/textures/block/glowing_obsidian.png,xcount=1,ycount=1
-texture:id=txt0150,filename=assets/blockus/textures/block/polished_blackstone.png,xcount=1,ycount=1
+texture:id=txt0150,filename=assets/minecraft/textures/block/polished_blackstone.png,xcount=1,ycount=1
 texture:id=txt0151,filename=assets/blockus/textures/block/gold_decorated_polished_blackstone.png,xcount=1,ycount=1
-texture:id=txt0152,filename=assets/blockus/textures/block/red_sandstone_top.png,xcount=1,ycount=1
+texture:id=txt0152,filename=assets/minecraft/textures/block/red_sandstone_top.png,xcount=1,ycount=1
 texture:id=txt0153,filename=assets/blockus/textures/block/gold_decorated_red_sandstone.png,xcount=1,ycount=1
-texture:id=txt0154,filename=assets/blockus/textures/block/sandstone_top.png,xcount=1,ycount=1
+texture:id=txt0154,filename=assets/minecraft/textures/block/sandstone_top.png,xcount=1,ycount=1
 texture:id=txt0155,filename=assets/blockus/textures/block/gold_decorated_sandstone.png,xcount=1,ycount=1
 texture:id=txt0156,filename=assets/blockus/textures/block/soul_sandstone_top.png,xcount=1,ycount=1
 texture:id=txt0157,filename=assets/blockus/textures/block/gold_decorated_soul_sandstone.png,xcount=1,ycount=1
