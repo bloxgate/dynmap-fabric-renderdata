@@ -1,0 +1,6 @@
+modname:battletowers
+
+texture:id=txt0000,filename=assets/battletowers/textures/block/boss_lock.png,xcount=1,ycount=1
+texture:id=txt0001,filename=assets/battletowers/textures/block/tower_spawner.png,xcount=1,ycount=1
+block:id=%boss_lock,data=*,allfaces=0:txt0000,stdrot=true
+block:id=%tower_spawner,data=*,allfaces=0:txt0001,stdrot=true
