@@ -10,10 +10,20 @@ class BlockHandler(ABC):
     def handle(self, blockFile, blockModel, modID):
         pass
 
+    @abstractmethod
+    def convert_texture_key_to_side(self, key):
+        pass
+
     def can_handle(self, blockModel):
         if 'parent' in blockModel.keys() and blockModel['parent'] in self.parents:
             return True
         return False
+
+    def determine_namespace_and_adjust_for_lookup(self, texturePath):
+        if ':' in texturePath:
+            return (texturePath.split(':')[1], True)
+        else:
+            return (texturePath, False)
 
     @staticmethod
     def lookup_texture(path, modID, isModTexture=True):

@@ -8,7 +8,7 @@ import os
 
 import blockhandlers
 
-handlers = [blockhandlers.CubeAllHandler()]
+handlers = [blockhandlers.CubeAllHandler(), blockhandlers.CubeHandler()]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generates dynmap texture support for cube/all models in a mod")
