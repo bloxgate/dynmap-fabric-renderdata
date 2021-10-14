@@ -20,6 +20,8 @@ class BlockHandler(ABC):
         return False
 
     def determine_namespace_and_adjust_for_lookup(self, texturePath):
+        if 'minecraft:' in texturePath:
+            return (texturePath.split(':')[1], False)
         if ':' in texturePath:
             return (texturePath.split(':')[1], True)
         else:
