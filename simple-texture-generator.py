@@ -19,7 +19,7 @@ if __name__ == "__main__":
     modID = ""
     tmpDir = tempfile.TemporaryDirectory()
     with zipfile.ZipFile(args.modjar, mode='r') as modjar:
-        modData = json.loads(modjar.read("fabric.mod.json"))
+        modData = json.loads(modjar.read("fabric.mod.json"), strict=False)
         modID = modData['id']
 
         #Extract mod assets
