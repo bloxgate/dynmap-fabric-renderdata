@@ -1,0 +1,5 @@
+modname:alaskanativecraft
+
+texture:id=txt0000,filename=assets/alaskanativecraft/textures/block/driftwood_log_top.png,xcount=1,ycount=1
+texture:id=txt0001,filename=assets/alaskanativecraft/textures/block/driftwood_log.png,xcount=1,ycount=1
+block:id=%driftwood_log,data=*,topbottom=0:txt0000,allsides=0:txt0001,stdrot=true
