@@ -17,6 +17,7 @@ if __name__ == "__main__":
 
     entries = []
     modID = ""
+    assetsID = ""
     tmpDir = tempfile.TemporaryDirectory()
     with zipfile.ZipFile(args.modjar, mode='r') as modjar:
         modData = json.loads(modjar.read("fabric.mod.json"), strict=False)
@@ -27,17 +28,25 @@ if __name__ == "__main__":
         for file in modjar.namelist():
             if file.startswith(f"assets/{modID}"):
                 assetMembers.append(file)
+        if len(assetMembers) == 0:
+            print(f"Unable to find assets for {modID}.")
+            assetsID = input("Enter assets path: ")
+            for file in modjar.namelist():
+                if file.startswith(f"assets/{assetsID}"):
+                    assetMembers.append(file)
+        else:
+            assetsID = modID
         modjar.extractall(path=tmpDir.name, members=assetMembers)
 
-    for blockFile in os.listdir(os.path.join(tmpDir.name, "assets", modID, "models", "block")):
-        fullBlockFile = os.path.join(tmpDir.name, "assets", modID, "models", "block", blockFile)
+    for blockFile in os.listdir(os.path.join(tmpDir.name, "assets", assetsID, "models", "block")):
+        fullBlockFile = os.path.join(tmpDir.name, "assets", assetsID, "models", "block", blockFile)
         if os.path.isdir(fullBlockFile):
             continue
         with open(fullBlockFile, mode='r') as blockModel:
             model = json.loads(blockModel.read())
             for handler in handlers:
                 if handler.can_handle(model):
-                    entries.append(handler.handle(blockFile, model, modID))
+                    entries.append(handler.handle(blockFile, model, assetsID))
                     break
 
     with open(f"{modID}-texture.txt", "w") as outFile:
